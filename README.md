@@ -1,4 +1,4 @@
-# Fish Feeder
+# NodeMCU based Fish Feeder
 
 #### Video of Fish Feeder in 'test mode': https://youtu.be/kWjWRuVtB2I
 
