@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fish Feeder</title>
+    <link rel="stylesheet" href="FishFeederStyle.css">
+</head>
+
+
+<body onload="document.getElementById('SetupForm').reset();">
+    <!-- TITLE DIV -->
+    <div id=title_div>
+        <h1 style="margin-bottom: -5px;">Fish Feeder</h1>
+        <h4 id="current_time">Date/Time: 01/01/2000 00:00:00</h4>
+        <h4 id="current_mode">Status: Waiting for Setup</h4>
+        <hr style="width: 20rem">
+    </div>
+
+    <!-- SETUP DIV -->
+    <div id="setup_div" style="display: none;">
+        <form id="SetupForm">
+            <h2>Setup:</h2>
+            <label for="num_feedings_loaded" id="num_feedings_loaded_label">Number of feedings loaded (1-16):</label>
+            <select id="num_feedings_loaded" class="uiSmall" name="num_feedings_loaded">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16" selected>16</option>
+            </select>
+            <label for="num_feedings_perDay" id="num_feedings_perDay_label">Number of feedings per day:</label>
+            <select id="num_feedings_perDay" class="uiSmall" name="num_feedings_perDay">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+            </select>
+            <label for="first_feeding" id="first_feeding_label">1st feeding time:</label>
+            <input type="time" class="uiSmall" id="first_feeding" name="first_feeding" required
+                style="max-width: 100px">
+            <label for="second_feeding" id="second_feeding_label" style="display: none;">2nd feeding time:</label>
+            <input type="time" class="uiSmall" id="second_feeding" name="second_feeding"
+                style="max-width: 100px; display: none;">
+            <input type="submit" class="uiLarge" id="button_start_feeder" value="Start Feeder"
+                style="margin-top: 30px; margin-bottom: 30px;">
+        </form>
+        <button type="button" class="uiMedium" id="button_enter_test">Enter Test Mode</button>
+    </div>
+
+    <!-- STATUS DIV -->
+    <div id="status_div" style="display: none;">
+        <h2>Status:</h2>
+        <div>
+            <h4 id="feedings_remaining_label">Feedings Remaining:</h4>
+            <h3 id="feedings_remaining_number">0</h3>
+        </div>
+        <div>
+            <h4 id="next_feeding_label">Next Feeding:</h4>
+            <h3 id="next_feeding_number">01/01/1970 17:00</h3>
+        </div>
+    </div>
+
+    <!-- TEST DIV -->
+    <div id="test_div" style="display: flex;">
+        <h2>Test:</h2>
+        <h4>Move Feeder Wheel:</h4>
+        <div style="flex-direction: row; margin-top: 5px;">
+            <button type="button" class="uiSmall" id="button_nudge_minus">Nudge -</button>
+            <button type="button" class="uiSmall" id="button_nudge_plus">Nudge +</button>
+        </div>
+        <form id="TestForm">
+            <label for="num_feedings_simulate" id="num_feedings_simulate_label">Number of feedings to simulate
+                (1-16):</label>
+            <select id="num_feedings_simulate" class="uiSmall" name="num_feedings_simulate">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16" selected>16</option>
+            </select>
+            <label for="time_between_feedings" id="num_feedings_perDay_label">Seconds between feedings:</label>
+            <select id="time_between_feedings" class="uiSmall" name="time_between_feedings">
+                <option value="5" selected>5s</option>
+                <option value="10">10s</option>
+                <option value="15">20s</option>
+            </select>
+            <input type="submit" class="uiLarge" value="Start Test" style="margin-top: 30px; margin-bottom: 30px">
+        </form>
+        <button type="button" class="uiMedium" id="button_exit_test">Exit Test Mode</button>
+    </div>
+
+    <!-- LOG DIV -->
+    <div id="log_div" style="display: flex">
+        <button type="button" class="uiSmall" id="button_toggle_log" style="font-size: 0.75rem">Show Log</button>
+        <div id="log_content" style="display: none">
+            <h4 style="margin-top: -5px; text-decoration: underline;">Fish Feeder Log:</h4>
+            <h5 id="log_text">Some Log Stuff</h5>
+        </div>
+    </div>
+
+
+
+    <!-- SCRIPT -->
+    <script>
+        //Title Div Vars
+        //=========================================================================================================
+        var currentTime = document.getElementById("current_time");
+        var currentMode = document.getElementById("current_mode");
+
+        //Setup Div Vars
+        //=========================================================================================================
+        var setupDiv = document.getElementById("setup_div");
+        var numFeedingsLoaded = document.getElementById("num_feedings_loaded");
+        var numFeedingsPerDay = document.getElementById("num_feedings_perDay");
+        var firstFeeding = document.getElementById("first_feeding");
+        var secondFeedingLabel = document.getElementById("second_feeding_label");
+        var secondFeeding = document.getElementById("second_feeding");
+        var startFeederButton = document.getElementById("button_start_feeder")
+        var enterTestButton = document.getElementById("button_enter_test");
+
+        //Status Div Vars
+        //=========================================================================================================
+        var statusDiv = document.getElementById("status_div");
+        var feedingsRemainingNumber = document.getElementById("feedings_remaining_number");
+        var nextFeedingNumber = document.getElementById("next_feeding_number");
+
+        //Test Div Vars
+        //=========================================================================================================
+        var testDiv = document.getElementById("test_div");
+        var nudgeMinusButton = document.getElementById("button_nudge_minus");
+        var nudgePlusButton = document.getElementById("button_nudge_plus");
+        var numFeedingsSimulate = document.getElementById("num_feedings_simulate");
+        var secsBetweenFeedings = document.getElementById("time_between_feedings");
+        var exitTestButton = document.getElementById("button_exit_test");
+
+        //Log Div Vars
+        //=========================================================================================================
+        var toggleLogButton = document.getElementById("button_toggle_log");
+        var logContent = document.getElementById("log_content");
+
+        //Title Div Logic
+        //=========================================================================================================
+
+
+        //Setup Div Logic
+        //=========================================================================================================
+        numFeedingsPerDay.addEventListener("input", function () {
+            if (numFeedingsPerDay.value == 2) {
+                secondFeeding.style.display = "inherit";
+                secondFeeding.required = true;
+                secondFeedingLabel.style.display = "inherit";
+
+            } else {
+                secondFeeding.style.display = "none";
+                secondFeeding.required = false;
+                secondFeedingLabel.style.display = "none";
+            }
+        }, false);
+
+        firstFeeding.addEventListener("input", function () {
+            secondFeeding.min = firstFeeding.value;
+        }, false);
+
+        startFeederButton.addEventListener("click", function () {
+
+        }, false);
+
+        enterTestButton.addEventListener("click", function () {
+            setupDiv.style.display = "none";
+            testDiv.style.display = "flex";
+        }, false);
+
+        //Status Div Logic
+        //=========================================================================================================
+
+
+        //Test Div Logic
+        //=========================================================================================================
+        exitTestButton.addEventListener("click", function () {
+            setupDiv.style.display = "flex";
+            testDiv.style.display = "none";
+        }, false);
+
+
+        //Log Div Vars
+        //=========================================================================================================
+        toggleLogButton.addEventListener("click", function () {
+            if (logContent.style.display === "inherit") {
+                logContent.style.display = "none";
+                toggleLogButton.innerHTML = "Show Log";
+            } else {
+                logContent.style.display = "inherit";
+                toggleLogButton.innerHTML = "Hide Log";
+                //setTimeout(scrollDown, 401);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

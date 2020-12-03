@@ -1,0 +1,102 @@
+body {
+    background-color: #c0c0c0;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-top: 15px;
+    margin-bottom: 2px;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.1rem;
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 1.85rem;
+    text-decoration: none;
+    margin-bottom: -5px;
+}
+
+h3 {
+    margin-top: 5px;
+    font-size: 1.65rem;
+    font-weight: 600;
+}
+
+h4 {
+    margin-top: 15px;
+    margin-bottom: 0px;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+#log_content {
+    background-color: #FFFFFF;
+    border: 2px solid #555555;
+    padding: 20px;
+	max-height: 400px;
+	width: 20rem;
+	max-width: 80vw;
+    overflow: auto;
+    transition: max-height 0.4s;
+}
+
+button,
+input,
+select  {
+    margin-left: 0.15rem;
+    margin-right: 0.15rem;
+    border-radius: 3px;
+    background-color: #F9F9F9;
+    border: 2px solid #555555;
+    color: #000000;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover,
+input[type=submit]:hover {
+    background-color: #555555;
+    color: #FFFFFF;
+}
+
+button.active,
+input[type=submit]:active {
+    background-color: #F9F9F9;
+}
+
+.uiSmall {
+    font-size: 0.85rem;
+    margin: 4px 8px;
+    padding: 3px 6px;
+}
+
+.uiMedium {
+    font-size: 1.05rem;
+    margin: 7.5px 15px;
+    padding: 5px 10px;
+}
+
+.uiLarge {
+    font-size: 2.00rem;
+    margin: 15px 30px;
+    padding: 10px 20px;
+}
