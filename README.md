@@ -1,6 +1,6 @@
 # NodeMCU based Fish Feeder
 
-#### Video of Fish Feeder in 'test mode': https://youtu.be/kWjWRuVtB2I
+#### Video of Fish Feeder in 'test mode': https://youtu.be/s49Ig8Wbufc
 
 ### Fish Feeder consists of
 * ESP8266/NodeMCU Microcontroller
