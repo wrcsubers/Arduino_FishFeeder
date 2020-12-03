@@ -1,5 +1,7 @@
 # Fish Feeder
 
+#### Video of Fish Feeder in 'test mode': https://youtu.be/kWjWRuVtB2I
+
 ### Fish Feeder consists of
 * NodeMCU
 * 28BYJ-48 Stepper Motor with ULN2003 Driver
