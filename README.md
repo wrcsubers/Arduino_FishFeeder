@@ -10,10 +10,4 @@
 
 The first version of this project was an automatic fish feeder that would feed once per day with a capacity for 16 days of feeding.  It uses NTP synchronization to assure the time is accurate.  Also contains a VERY simple built in webpage with a log which can be accessed via VPN when away from home.  
 
-#### Future Plans:
-* Set parameters via webpage
-  * Set number of feedings
-  * Set time of feedings
-  * Test feeder
-  * Nudge feeding disk forward/backward
-* Add RGB Lighting for day/night cycles
+#### Check out Fish Feeder Version 2 ---> https://github.com/wrcsubers/Arduino_FishFeeder_v2
