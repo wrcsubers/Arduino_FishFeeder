@@ -144,7 +144,7 @@ time_t calcDailyAlarmTime(int alarmHour, int alarmMinute){
 //Recurring Alarm Calculations
 //==================================================================================================================================
 time_t calcRecurringAlarmTime(int alarmHour, int alarmMinute, int alarmSecond){
-  //Break current time to components
+//Break current time to components
   time_t timeNow = myTZ.now();
   tmElements_t timeNow_tm;
   breakTime(timeNow, timeNow_tm);
@@ -183,7 +183,6 @@ void morningAlarm(){
   setEvent(morningAlarm, calcDailyAlarmTime(7, 0));
 }
 
-
 void eveningAlarm(){
   webPageLog += ("\nEvening Alarm Triggered");
   advanceFeeder(255);
@@ -191,17 +190,16 @@ void eveningAlarm(){
   setEvent(eveningAlarm, calcDailyAlarmTime(19, 0));
 }
 
-
 void advanceFeeder(int numberOfSteps){
-    if (feedingsRemaining >= 0){
-      feedingsRemaining--;
-      webPageLog += ("\nFeeding Fish Now! - Feedings Remaining: ");
-      webPageLog += (feedingsRemaining);
-      feedMotor.move(numberOfSteps);
-    } else {
-      webPageLog += ("\nNo Feedings Left!");  
-    }
-    handleRoot();
+  if (feedingsRemaining >= 0){
+    feedingsRemaining--;
+    webPageLog += ("\nFeeding Fish Now! - Feedings Remaining: ");
+    webPageLog += (feedingsRemaining);
+    feedMotor.move(numberOfSteps);
+  } else {
+    webPageLog += ("\nNo Feedings Left!");  
+  }
+  handleRoot();
 }
 
 void handleRoot() {
