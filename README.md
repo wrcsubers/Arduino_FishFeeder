@@ -1,5 +1,7 @@
 # NodeMCU based Fish Feeder
 
+#### Check out Fish Feeder Version 2 ---> https://github.com/wrcsubers/Arduino_FishFeeder_v2
+
 #### Video of Fish Feeder in 'test mode': https://youtu.be/s49Ig8Wbufc
 
 ### Fish Feeder consists of
@@ -10,4 +12,6 @@
 
 The first version of this project was an automatic fish feeder that would feed once per day with a capacity for 16 days of feeding.  It uses NTP synchronization to assure the time is accurate.  Also contains a VERY simple built in webpage with a log which can be accessed via VPN when away from home.  
 
-#### Check out Fish Feeder Version 2 ---> https://github.com/wrcsubers/Arduino_FishFeeder_v2
+Connect as follows:
+
+https://github.com/wrcsubers/Arduino_FishFeeder/blob/main/_Images/Diagram_Wiring.png
