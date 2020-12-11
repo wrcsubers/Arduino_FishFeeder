@@ -2,6 +2,10 @@
 
 ---
 
+## Status: Functional
+
+---
+
 ### Check out Fish Feeder Version 2 ---> https://github.com/wrcsubers/Arduino_FishFeeder_v2
 
 ---
