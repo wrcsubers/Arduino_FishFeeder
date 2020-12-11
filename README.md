@@ -1,6 +1,10 @@
 # NodeMCU based Fish Feeder
 
-#### Check out Fish Feeder Version 2 ---> https://github.com/wrcsubers/Arduino_FishFeeder_v2
+---
+
+### Check out Fish Feeder Version 2 ---> https://github.com/wrcsubers/Arduino_FishFeeder_v2
+
+---
 
 #### Video of Fish Feeder in 'test mode': https://youtu.be/s49Ig8Wbufc
 
