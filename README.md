@@ -14,4 +14,6 @@ The first version of this project was an automatic fish feeder that would feed o
 
 Connect as follows:
 
-https://github.com/wrcsubers/Arduino_FishFeeder/blob/main/_Images/Diagram_Wiring.png
+![FishFeederWiringDiagram](https://github.com/wrcsubers/Arduino_FishFeeder/blob/main/_Images/Diagram_Wiring.png)
+
+You can access the status page by visiting the IP Address (available by serial monitor) in any browser or by visiting 'FishFeeder.local' in your browser.
